@@ -1,9 +1,28 @@
 <html>
 <head>
     <title>Test Html</title>
+    <style>
+    h2 {
+        border: 1px solid red;
+    }
+
+    </style>
 </head>
 <body>
-    <div>Some Contents</div>
+    <div id="message">Some Contents</div>
     <div><h2>s lkdgjklsjdlkgjkldskgk</h2></div>
+    <button onclick="reverseContents()">Reverse Contents</button>
+
+
+    <script>
+
+        function reverseContents(){
+
+           var str = document.getElementById('message').innerHTML
+           var revStr = str.split('').reverse().join('')
+           document.getElementById('message').innerHTML = revStr
+        }
+
+    </script>
 </body>
 </html>
