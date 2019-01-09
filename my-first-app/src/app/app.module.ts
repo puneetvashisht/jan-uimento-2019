@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpModule} from '@angular/http'
 
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './button.component';
@@ -13,7 +14,7 @@ import { DropdownItemComponent } from './components/dropdown-item.component';
     AppComponent, ButtonComponent, BadgeComponent, CardComponent, DropdownComponent, DropdownItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

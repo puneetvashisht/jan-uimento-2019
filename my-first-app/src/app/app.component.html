@@ -1,15 +1,26 @@
-<div>
+<!-- <div>
 
   <my-dropdown caption="Select Courses!!" [courses]="courses"></my-dropdown>
-</div>
+</div> -->
 
-<!-- <div class="container">
+<div class="container">
+
+    <div class="row">
+
+        <h2>Add Course</h2>
+        <input #title (change)="0" type="text" placeholder="Enter Title"/>
+        <input #summary (change)="0" type="text" placeholder="Enter Summary"/>
+        <button (click)="addCourse(title.value, summary.value)">Add Course</button>
+       
+    </div>
+
+    <hr/>
   <div class="row">
 
       <my-card *ngFor="let course of courses" title={{course.title}} summary={{course.summary}}></my-card>
      
   </div>
-</div> -->
+</div>
 
 
 
