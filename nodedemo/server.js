@@ -21,9 +21,15 @@ var courses = [
     {"title": "CanJS", "summary":"Yet another popular UI framework!!"}
 ]
 
-app.get('/', (req, res) => res.send('Hello World!'))
-
 app.get('/courses', (req,res)=> {
+    res.json(courses)
+})
+
+
+app.delete('/courses/:index', (req, res)=>{
+    console.log(req.params.index);
+    var index = req.params.index
+    courses.splice(index, 1)
     res.json(courses)
 })
 

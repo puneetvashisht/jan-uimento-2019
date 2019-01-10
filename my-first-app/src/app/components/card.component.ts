@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
     selector: 'my-card',
@@ -9,6 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
             <h5 class="card-title">{{title}}</h5>
             <p class="card-text">{{summary}}</p>
             <my-badge caption="Votes" count="0"></my-badge>
+            <button type="button" class="btn btn-danger" (click)="deleteCourse()">Delete</button>
         </div>
     </div>
     
@@ -19,11 +21,16 @@ export class CardComponent implements OnInit {
 
     @Input('title') title: string = 'Default'
     @Input('summary') summary: string = 'Default Summary'
-
-    constructor() { }
+    @Output('courseDeleted') courseDeleted: EventEmitter<any> = new EventEmitter();
+    constructor(private http: Http) { }
 
     ngOnInit() { 
 
+    }
+
+    deleteCourse(){
+        console.log('Deleting course')
+        this.courseDeleted.emit();
     }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from './models/course';
 import { Http } from '@angular/http';
+import { CourseService } from './services/course.service';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,24 @@ import { Http } from '@angular/http';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private http: Http){
+  constructor(private http: Http, private courseService: CourseService){
 
   }
 
   ngOnInit(){
     console.log('Do any initialization here...')
     // this.http.get('http://localhost:4200/assets/courses.json')
-    this.http.get('http://localhost:3000/courses')
-    .toPromise()
-    .then(res=> res.json())
+    this.courseService.fetchAllCourses()
+    .then(data => {
+      console.log(data)
+      this.courses = data
+    })
+  }
+
+  handleCourseDeletion(value: any, index: number){
+    console.log('Delete Method in Parent Component');
+    console.log(value, index);
+    this.courseService.deleteCourse(index)
     .then(data => {
       console.log(data)
       this.courses = data
@@ -28,10 +37,7 @@ export class AppComponent implements OnInit {
 
   addCourse(title: string, summary: string){
     console.log(title, summary)
-
-    this.http.post('http://localhost:3000/courses', {title, summary})
-    .toPromise()
-    .then(res=> res.json())
+   this.courseService.addCourse({title,summary})
     .then(data => {
       console.log(data)
       this.courses = data

@@ -8,6 +8,7 @@ import { BadgeComponent } from './components/badge.component';
 import { CardComponent } from './components/card.component';
 import { DropdownComponent } from './components/dropdown.component';
 import { DropdownItemComponent } from './components/dropdown-item.component';
+import { CourseService } from './services/course.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { DropdownItemComponent } from './components/dropdown-item.component';
   imports: [
     BrowserModule, HttpModule
   ],
-  providers: [],
+  providers: [CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
