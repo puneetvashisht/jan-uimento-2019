@@ -3,8 +3,10 @@
   <my-dropdown caption="Select Courses!!" [courses]="courses"></my-dropdown>
 </div> -->
 
+<h2>{{today | date:'y/MM/d'}}</h2>
 <div class="container">
 
+     
     <div class="row">
 
         <h2>Add Course</h2>
@@ -15,9 +17,19 @@
     </div>
 
     <hr/>
+
+    <div class="row">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Search Course</span>
+            </div>
+            <input type="text" #search (keyup)="0" class="form-control" placeholder="Enter a course to search.. eg. Angular, React" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+
+    </div>  
   <div class="row">
 
-      <my-card *ngFor="let course of courses; let i=index" title={{course.title}} summary={{course.summary}} (courseDeleted)="handleCourseDeletion($event, i)"></my-card>
+      <my-card *ngFor="let course of courses  | search:search.value" title={{course.title}} summary={{course.summary}} (courseDeleted)="handleCourseDeletion($event, i)"></my-card>
      
   </div>
 </div>

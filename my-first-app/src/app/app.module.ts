@@ -12,10 +12,12 @@ import { CourseService } from './services/course.service';
 import { FirstComponent } from './components/first.component';
 import { SecondComponent } from './components/second.component';
 import { LogService } from './services/log.service';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent, ButtonComponent, BadgeComponent, CardComponent, DropdownComponent, DropdownItemComponent, FirstComponent, SecondComponent
+    AppComponent, ButtonComponent, BadgeComponent, CardComponent, DropdownComponent, DropdownItemComponent, FirstComponent, SecondComponent, CapitalizePipe, SearchPipe
   ],
   imports: [
     BrowserModule, HttpModule

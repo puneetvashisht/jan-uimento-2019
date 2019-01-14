@@ -16,6 +16,11 @@ export class AppComponent implements OnInit {
 
   }
 
+  courses: Array<Course> = []
+  today : Date = new Date()
+  title:string = "First Angular";
+  revStr: string = ''
+
   ngOnInit(){
     console.log('Do any initialization here...')
     // this.http.get('http://localhost:4200/assets/courses.json')
@@ -46,10 +51,7 @@ export class AppComponent implements OnInit {
     })
   }
 
-  courses: Array<Course> = []
-
-  title:string = "First Angular";
-  revStr: string = '' 
+   
 
   reverse(){
     console.log(this.title)
