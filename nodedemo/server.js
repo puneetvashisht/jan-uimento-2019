@@ -30,13 +30,15 @@ app.delete('/courses/:index', (req, res)=>{
     console.log(req.params.index);
     var index = req.params.index
     courses.splice(index, 1)
-    res.json(courses)
+    // res.json(courses)
+    res.status(202).json({message: "Course deleted successfully!!"})
 })
 
 app.post('/courses', (req,res)=> {
     var course = req.body
     courses.push(course);
-    res.json(courses)
+    // res.json(courses)
+    res.status(201).json({message: "Course added successfully"})
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

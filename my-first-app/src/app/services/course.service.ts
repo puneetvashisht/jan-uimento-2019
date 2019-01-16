@@ -27,7 +27,10 @@ export class CourseService {
     deleteCourse(index: number): Promise<any>{
      return this.http.delete(baseUrl + index)
     .toPromise()
-    .then(res=> res.json())
+    .then(res=> {
+        console.log(res.status)
+        return res.json()
+    })
     }
 
 }

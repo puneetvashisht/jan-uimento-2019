@@ -3,34 +3,62 @@
   <my-dropdown caption="Select Courses!!" [courses]="courses"></my-dropdown>
 </div> -->
 
-<h2>{{today | date:'long'}}</h2>
+<!-- <h2>{{today | date:'long'}}</h2> -->
 <div class="container">
 
-     
-    <div class="row">
 
-        <h2>Add Course</h2>
-        <input #title (change)="0" type="text" placeholder="Enter Title"/>
-        <input #summary (change)="0" type="text" placeholder="Enter Summary"/>
-        <button (click)="addCourse(title.value, summary.value)">Add Course</button>
-       
-    </div>
-
-    <hr/>
-
-    <div class="row">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Search Course</span>
-            </div>
-            <input type="text" #search (keyup)="0" class="form-control" placeholder="Enter a course to search.. eg. Angular, React" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-
-    </div>  
   <div class="row">
 
-      <my-card *ngFor="let course of courses  | search:search.value" title={{course.title}} summary={{course.summary}} (courseDeleted)="handleCourseDeletion($event, i)"></my-card>
-     
+    <div class="col-12">
+      <h2 class="card-title">Add Course</h2>
+    </div>
+
+
+    <div *ngIf="message" class="col-12 alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Title</span>
+      </div>
+      <input type="text" #title (change)="0" class="form-control" placeholder="Enter Title" aria-label="Username"
+        aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Summary</span>
+      </div>
+      <input type="text" #summary (change)="0" class="form-control" placeholder="Enter Summary" aria-label="Username"
+        aria-describedby="basic-addon1">
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" (click)="addCourse(title.value, summary.value)">Add Course</button>
+    </div>
+
+
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Search Course</span>
+      </div>
+      <input type="text" #search (keyup)="0" class="form-control" placeholder="Enter a course to search.. eg. Angular, React"
+        aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+  </div>
+  <div class="row">
+
+    <my-card *ngFor="let course of courses | search:search.value ;let i=index " title={{course.title}} summary={{course.summary}}
+      (courseDeleted)="handleCourseDeletion($event, i)"></my-card>
+
   </div>
 </div>
 
@@ -38,4 +66,3 @@
 <!-- <comp-first></comp-first>
 <hr/>
 <comp-second></comp-second> -->
-

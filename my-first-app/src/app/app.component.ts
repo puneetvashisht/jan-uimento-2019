@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   constructor(private http: Http, private courseService: CourseService){
 
   }
-
+  message: string = ''
   courses: Array<Course> = []
   today : Date = new Date()
   title:string = "First Angular";
@@ -37,7 +37,8 @@ export class AppComponent implements OnInit {
     this.courseService.deleteCourse(index)
     .then(data => {
       console.log(data)
-      this.courses = data
+      // this.courses = data
+      this.message = data.message
     })
   }
 
@@ -46,8 +47,9 @@ export class AppComponent implements OnInit {
     console.log(title, summary)
    this.courseService.addCourse({title,summary})
     .then(data => {
+      this.message = data.message
       console.log(data)
-      this.courses = data
+      // this.courses = data
     })
   }
 
