@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpModule} from '@angular/http'
+import { StorageServiceModule } from 'angular-webstorage-service';
+
 
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './button.component';
@@ -14,15 +16,16 @@ import { SecondComponent } from './components/second.component';
 import { LogService } from './services/log.service';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { SearchPipe } from './pipes/search.pipe';
+import { CourseLocalService } from './services/course-local.service';
 
 @NgModule({
   declarations: [
     AppComponent, ButtonComponent, BadgeComponent, CardComponent, DropdownComponent, DropdownItemComponent, FirstComponent, SecondComponent, CapitalizePipe, SearchPipe
   ],
   imports: [
-    BrowserModule, HttpModule
+    BrowserModule, HttpModule,StorageServiceModule
   ],
-  providers: [CourseService, LogService],
+  providers: [CourseService, LogService, CourseLocalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

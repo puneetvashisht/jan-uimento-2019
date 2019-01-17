@@ -3,6 +3,7 @@ import { Course } from './models/course';
 import { Http } from '@angular/http';
 import { CourseService } from './services/course.service';
 import { LogService } from './services/log.service';
+import { CourseLocalService } from './services/course-local.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ import { LogService } from './services/log.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private http: Http, private courseService: CourseService){
+  constructor(private http: Http, private courseService: CourseService, private courseLocalService: CourseLocalService){
 
   }
   message: string = ''
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     console.log('Do any initialization here...')
     // this.http.get('http://localhost:4200/assets/courses.json')
-    this.courseService.fetchAllCourses()
+    this.courseLocalService.fetchAllCourses()
     .then(data => {
       console.log(data)
       this.courses = data
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit {
 
   addCourse(title: string, summary: string){
     console.log(title, summary)
-   this.courseService.addCourse({title,summary})
+   this.courseLocalService.addCourse({title,summary})
     .then(data => {
       this.message = data.message
       console.log(data)
