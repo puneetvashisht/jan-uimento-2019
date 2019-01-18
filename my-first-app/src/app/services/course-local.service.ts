@@ -1,9 +1,10 @@
 import { Injectable, Inject } from '@angular/core';
 import { StorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
 import { Course } from '../models/course';
+import { ICourseService } from './icourse.service';
 
 @Injectable()
-export class CourseLocalService {
+export class CourseLocalService implements ICourseService{
     
     constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
 

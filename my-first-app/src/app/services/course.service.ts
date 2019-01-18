@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Course } from '../models/course';
+import { ICourseService } from './icourse.service';
 
 const baseUrl: string = 'http://localhost:3000/courses/'
 
 @Injectable()
-export class CourseService {
+export class CourseService implements ICourseService {
     
     constructor(private http: Http) { }
 

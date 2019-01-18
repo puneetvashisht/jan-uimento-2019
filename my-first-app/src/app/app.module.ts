@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpModule} from '@angular/http'
+import {HttpModule, Http} from '@angular/http'
 import { StorageServiceModule } from 'angular-webstorage-service';
 
 
@@ -17,6 +17,12 @@ import { LogService } from './services/log.service';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { CourseLocalService } from './services/course-local.service';
+import {ICourseService} from './services/icourse.service'
+
+
+// let courseServiceFactory = (http: Http) => {
+//   return new CourseService(http);
+// };
 
 @NgModule({
   declarations: [
@@ -25,7 +31,15 @@ import { CourseLocalService } from './services/course-local.service';
   imports: [
     BrowserModule, HttpModule,StorageServiceModule
   ],
-  providers: [CourseService, LogService, CourseLocalService],
+  providers: [ LogService,
+    { provide: 'CourseLocal',   useClass:    CourseLocalService },
+    { provide: 'Course',   useClass:    CourseService }
+// {
+  // provide: 'ICourseService', useFactory: courseServiceFactory,  deps: [Http]
+// }
+    
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
