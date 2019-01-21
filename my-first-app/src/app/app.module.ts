@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpModule, Http} from '@angular/http'
 import { StorageServiceModule } from 'angular-webstorage-service';
-
+import {RouterModule, Routes} from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './button.component';
@@ -18,18 +18,25 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { CourseLocalService } from './services/course-local.service';
 import {ICourseService} from './services/icourse.service'
+import { ViewCoursesComponent } from './components/view-courses.component';
+import { AddCourseComponent } from './components/add-course.component';
+
 
 
 // let courseServiceFactory = (http: Http) => {
 //   return new CourseService(http);
 // };
+const ROUTES: Routes = [
+  {path:"", component: ViewCoursesComponent},
+  {path:"add", component: AddCourseComponent}
+]
 
 @NgModule({
   declarations: [
-    AppComponent, ButtonComponent, BadgeComponent, CardComponent, DropdownComponent, DropdownItemComponent, FirstComponent, SecondComponent, CapitalizePipe, SearchPipe
+    AppComponent, ButtonComponent, BadgeComponent, CardComponent, DropdownComponent, DropdownItemComponent, FirstComponent, SecondComponent, CapitalizePipe, SearchPipe, ViewCoursesComponent, AddCourseComponent
   ],
   imports: [
-    BrowserModule, HttpModule,StorageServiceModule
+    BrowserModule, HttpModule,StorageServiceModule, RouterModule.forRoot(ROUTES)
   ],
   providers: [ LogService,
     { provide: 'CourseLocal',   useClass:    CourseLocalService },
