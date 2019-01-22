@@ -25,7 +25,7 @@ import { Course } from '../models/course';
 })
 export class ViewCoursesComponent implements OnInit {
 
-    constructor(@Inject('CourseLocal') private courseService: ICourseService ){
+    constructor(@Inject('Course') private courseService: ICourseService ){
 
     }
     message: string = ''

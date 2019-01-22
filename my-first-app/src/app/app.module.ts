@@ -20,6 +20,7 @@ import { CourseLocalService } from './services/course-local.service';
 import {ICourseService} from './services/icourse.service'
 import { ViewCoursesComponent } from './components/view-courses.component';
 import { AddCourseComponent } from './components/add-course.component';
+import { ViewCourseDetailsComponent } from './components/view-coursedetails.components';
 
 
 
@@ -28,12 +29,13 @@ import { AddCourseComponent } from './components/add-course.component';
 // };
 const ROUTES: Routes = [
   {path:"", component: ViewCoursesComponent},
-  {path:"add", component: AddCourseComponent}
+  {path:"add", component: AddCourseComponent},
+  {path:"course/:id", component: ViewCourseDetailsComponent}
 ]
 
 @NgModule({
   declarations: [
-    AppComponent, ButtonComponent, BadgeComponent, CardComponent, DropdownComponent, DropdownItemComponent, FirstComponent, SecondComponent, CapitalizePipe, SearchPipe, ViewCoursesComponent, AddCourseComponent
+    AppComponent, ButtonComponent, BadgeComponent, CardComponent, DropdownComponent, DropdownItemComponent, FirstComponent, SecondComponent, CapitalizePipe, SearchPipe, ViewCoursesComponent, AddCourseComponent, ViewCourseDetailsComponent
   ],
   imports: [
     BrowserModule, HttpModule,StorageServiceModule, RouterModule.forRoot(ROUTES)

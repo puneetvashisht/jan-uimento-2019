@@ -45,7 +45,7 @@ export class AddCourseComponent implements OnInit {
 
     message: string = ''
 
-    constructor(@Inject('CourseLocal') private courseService: ICourseService ) { }
+    constructor(@Inject('Course') private courseService: ICourseService ) { }
 
     ngOnInit() { 
 
