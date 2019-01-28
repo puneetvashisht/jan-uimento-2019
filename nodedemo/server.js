@@ -21,6 +21,18 @@ var courses = [
     {"title": "CanJS", "summary":"Yet another popular UI framework!!"}
 ]
 
+app.post('/authenticate', (req, res)=>{
+    var email = req.body.email;
+    var password = req.body.password;
+
+    if(email == password){
+        res.json({auth: true})
+    }
+    else{
+        res.json({auth: false})
+    }
+})
+
 app.get('/courses', (req,res)=> {
     res.json(courses)
 })

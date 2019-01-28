@@ -21,6 +21,8 @@ import {ICourseService} from './services/icourse.service'
 import { ViewCoursesComponent } from './components/view-courses.component';
 import { AddCourseComponent } from './components/add-course.component';
 import { ViewCourseDetailsComponent } from './components/view-coursedetails.components';
+import { LoginComponent } from './components/login.component';
+import { ProfileComponent } from './components/profile.component';
 
 
 
@@ -30,12 +32,14 @@ import { ViewCourseDetailsComponent } from './components/view-coursedetails.comp
 const ROUTES: Routes = [
   {path:"", component: ViewCoursesComponent},
   {path:"add", component: AddCourseComponent},
-  {path:"course/:id", component: ViewCourseDetailsComponent}
+  {path:"course/:id", component: ViewCourseDetailsComponent},
+  {path:"login", component: LoginComponent},
+  {path:"profile", component: ProfileComponent}
 ]
 
 @NgModule({
   declarations: [
-    AppComponent, ButtonComponent, BadgeComponent, CardComponent, DropdownComponent, DropdownItemComponent, FirstComponent, SecondComponent, CapitalizePipe, SearchPipe, ViewCoursesComponent, AddCourseComponent, ViewCourseDetailsComponent
+    AppComponent, ButtonComponent, BadgeComponent, CardComponent, DropdownComponent, DropdownItemComponent, FirstComponent, SecondComponent, CapitalizePipe, SearchPipe, ViewCoursesComponent, AddCourseComponent, ViewCourseDetailsComponent,LoginComponent,ProfileComponent
   ],
   imports: [
     BrowserModule, HttpModule,StorageServiceModule, RouterModule.forRoot(ROUTES)
