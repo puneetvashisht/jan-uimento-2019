@@ -23,6 +23,7 @@ import { AddCourseComponent } from './components/add-course.component';
 import { ViewCourseDetailsComponent } from './components/view-coursedetails.components';
 import { LoginComponent } from './components/login.component';
 import { ProfileComponent } from './components/profile.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 
 
@@ -34,7 +35,7 @@ const ROUTES: Routes = [
   {path:"add", component: AddCourseComponent},
   {path:"course/:id", component: ViewCourseDetailsComponent},
   {path:"login", component: LoginComponent},
-  {path:"profile", component: ProfileComponent}
+  {path:"profile", component: ProfileComponent, canActivate: [AuthGuard]}
 ]
 
 @NgModule({
@@ -46,11 +47,11 @@ const ROUTES: Routes = [
   ],
   providers: [ LogService,
     { provide: 'CourseLocal',   useClass:    CourseLocalService },
-    { provide: 'Course',   useClass:    CourseService }
+    { provide: 'Course',   useClass:    CourseService },
 // {
   // provide: 'ICourseService', useFactory: courseServiceFactory,  deps: [Http]
 // }
-    
+  AuthGuard
 
   ],
   bootstrap: [AppComponent]
