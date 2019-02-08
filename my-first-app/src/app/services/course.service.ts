@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import {map} from 'rxjs/operators'
 import { Course } from '../models/course';
 import { ICourseService } from './icourse.service';
+import { Observable } from 'rxjs';
 
-const baseUrl: string = 'http://localhost:8080/courses/'
+const baseUrl: string = 'http://localhost:3000/courses/'
 
 @Injectable()
 export class CourseService implements ICourseService {
@@ -11,10 +13,18 @@ export class CourseService implements ICourseService {
     constructor(private http: Http) { }
 
 
-    fetchAllCourses(): Promise<any>{
-        return this.http.get(baseUrl)
-        .toPromise()
-        .then(res=> res.json())
+    fetchAllCourses(): Observable<any>{
+        // return
+         return this.http.get(baseUrl)
+         .pipe(
+            map(res => res.json())
+         )
+        
+        //  .map((res)=>res.json())
+         
+
+        // .toPromise()
+        // .then(res=> res.json())
     }
 
 

@@ -37,8 +37,7 @@ export class ViewCoursesComponent implements OnInit {
     ngOnInit(){
       console.log('Do any initialization here...')
       // this.http.get('http://localhost:4200/assets/courses.json')
-      this.courseService.fetchAllCourses()
-      .then(data => {
+      this.courseService.fetchAllCourses().subscribe(data => {
         console.log(data)
         this.courses = data
       })
