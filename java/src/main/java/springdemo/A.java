@@ -25,8 +25,8 @@ public class A {
 	
 	
 	public void execute(){
-		b.execute();
-		System.out.println("Execute in A");
+		b.execute(32);
+//		System.out.println("Execute in A");
 	}
 
 }

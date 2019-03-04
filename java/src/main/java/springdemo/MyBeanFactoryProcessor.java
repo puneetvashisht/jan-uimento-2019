@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 //import org.springframework.beans.factory.config.BeanFactoryProcessor;
 
-@Component
+//@Component
 public class MyBeanFactoryProcessor implements BeanFactoryPostProcessor{
 
 	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {

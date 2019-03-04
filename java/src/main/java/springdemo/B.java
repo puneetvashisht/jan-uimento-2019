@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class B {
 
-	public void execute(){
-		System.out.println("Execute in B");
+	public void execute(int a){
+//		System.out.println("Execute in B");
 	}
 }

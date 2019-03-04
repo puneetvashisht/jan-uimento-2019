@@ -25,7 +25,7 @@ public class TestSpring {
 	
 	@Test
 	public void testB(){
-		b.execute();
+		b.execute(45);
 	}
 
 }

@@ -29,8 +29,8 @@ export class FirstComponent implements OnInit {
     }
 
     displayCourses(){
-        this.courseService.fetchAllCourses()
-        .then(data=>console.log(data));
+        // this.courseService.fetchAllCourses()
+        // .then(data=>console.log(data));
     }
 
 }
