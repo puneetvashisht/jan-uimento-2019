@@ -1,12 +1,13 @@
 package springdemo.entities;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name="selectAllCourses", query="select c from Course2 c")
 public class Course2 {
 	
 	@Id
