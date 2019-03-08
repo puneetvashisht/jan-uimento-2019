@@ -25,7 +25,7 @@ import { Course } from '../models/course';
 })
 export class ViewCoursesComponent implements OnInit {
 
-    constructor(@Inject('CourseLocal') private courseService: ICourseService ){
+    constructor(@Inject('Course') private courseService: ICourseService ){
 
     }
     message: string = ''
@@ -38,7 +38,7 @@ export class ViewCoursesComponent implements OnInit {
       console.log('Do any initialization here...')
       // this.http.get('http://localhost:4200/assets/courses.json')
       this.courseService.fetchAllCourses()
-    .then(data => {
+    .subscribe(data => {
         console.log(data)
         this.courses = data
       })
