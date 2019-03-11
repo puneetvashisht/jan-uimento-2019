@@ -1,5 +1,7 @@
 package com.cts.januimentospringboot.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,7 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQuery(name="selectAllCourses", query="select c from Course2 c")
-public class Course2 {
+public class Course2 implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
