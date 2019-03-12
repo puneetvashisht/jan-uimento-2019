@@ -5,7 +5,7 @@ import { Course } from '../models/course';
 import { ICourseService } from './icourse.service';
 import { Observable } from 'rxjs';
 
-const baseUrl: string = 'http://localhost:8080/api/courses/'
+const baseUrl: string = 'http://localhost:8080/courses/'
 
 @Injectable()
 export class CourseService implements ICourseService {

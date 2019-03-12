@@ -4,7 +4,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
     selector: 'my-dropdown-item',
     template: `
-        <a class="dropdown-item" href="#"  (click)="selectCourse(course.title)">{{course.title}}</a>
+        <a class="dropdown-item" href="#"  (click)="selectCourse(course)">{{course}}</a>
     `
 })
 export class DropdownItemComponent implements OnInit {
